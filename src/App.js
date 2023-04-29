@@ -94,11 +94,11 @@ function App() {
       const interval = setInterval(() => {
         if ((clockMinute == "0") && (clockSeconds == "0")) {
           //beep
+          document.getElementById("beep").play();
           setTimeout(()=>{
             setTimerState("4");
-            document.getElementById("beep").play();
+            setClockMinutes(blDisplay);
           }, 1000);
-          setClockMinutes(blDisplay);
         }
          else if ((clockMinute != "0") && (clockSeconds == "0")) {
           setClockSeconds("59");
@@ -135,12 +135,12 @@ function App() {
       setTitle("Break");
       const interval = setInterval(() => {
         if ((clockMinute == "0") && (clockSeconds == "0")) {
-          //
+          //beep
+          document.getElementById("beep").play();
           setTimeout(() => {
             setClockMinutes(slDisplay);
             setClockSeconds("0");
             setTimerState("1");
-            document.getElementById("beep").play();
           }, 1000);
         }
          else if ((clockMinute != "0") && (clockSeconds == "0")) {
