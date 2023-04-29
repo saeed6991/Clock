@@ -1,3 +1,5 @@
+@import url("https://fonts.cdnfonts.com/css/calculator");
+
 body {
   background-color: rgb(37, 19, 61);
   color: white;
@@ -107,6 +109,8 @@ body {
   margin: auto;
   margin-bottom: -105px;
   color:white;
+  font-family: "Calculator", sans-serif;
+  font-size: 20px;
 }
 
 .time {
