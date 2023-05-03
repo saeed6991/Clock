@@ -97,8 +97,8 @@ function App() {
           document.getElementById("beep").play();
           setTimeout(()=>{
             setTimerState("4");
+            setClockMinutes(blDisplay);
           }, 1000);
-          setClockMinutes(blDisplay);
         }
          else if ((clockMinute != "0") && (clockSeconds == "0")) {
           setClockSeconds("59");
@@ -106,7 +106,6 @@ function App() {
         } else {
           setClockSeconds(parseInt(clockSeconds) - 1);
         }
-        setTime(new Date);
       }, 1000);
       return () => clearInterval(interval);
     }
@@ -135,7 +134,6 @@ function App() {
       setTitle("Break");
       const interval = setInterval(() => {
         if ((clockMinute == "0") && (clockSeconds == "0")) {
-          //
           document.getElementById("beep").play();
           setTimeout(() => {
             setClockMinutes(slDisplay);
@@ -176,6 +174,14 @@ function App() {
       setTitle("Session");
     }
   }, [title, timerState]);
+
+  useEffect (()=> {
+    const interval = setInterval(()=> {
+      setTime(new Date());
+      
+    }, 1000);    
+    return () => clearInterval(interval);
+  }, [time]);
 
   const doNothing = () => {
     return "";
